@@ -1,0 +1,30 @@
+.product-list-container {
+  padding: 1rem;
+}
+
+.product-list-card {
+  border: 1px solid gainsboro;
+  display: inline-block;
+  width: 200px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.product-list-card:first-child {
+  margin: 0;
+}
+
+.product-list-card a {
+  text-decoration: none;
+}
+
+.product-list-card h4,
+.product-list-card h6 {
+  text-align: center;
+  color: gray;
+}
+
+.product-list-image {
+  width: 100%;
+  object-fit: cover;
+}

@@ -1,12 +1,14 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteAll } from "../../actions";
 import CartItem from "../CartItem";
 import { calculateTotal } from "../../utils";
+import "./index.css";
 
 export const Cart = ({ cart, deleteAll }) => {
   return (
-    <div>
+    <div className="cart-container">
       {cart.length ? (
         <Fragment>
           <h2>Cart Summary</h2>
@@ -31,6 +33,11 @@ export const Cart = ({ cart, deleteAll }) => {
       )}
     </div>
   );
+};
+
+Cart.propTypes = {
+  cart: PropTypes.array.isRequired,
+  deleteAll: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {

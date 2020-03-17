@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addItem, deleteItem } from "../../actions";
+import "./index.css";
 
 export class CartItem extends React.Component {
   constructor(props) {
@@ -56,8 +58,8 @@ export class CartItem extends React.Component {
     const { image, title, size, price } = this.props.item;
 
     return (
-      <div>
-        <img src={image} alt={title} />
+      <div className="cart-item-container">
+        <img src={image} alt={title} className="cart-item-img" />
         <div>
           <h5>{title}</h5>
           <p>SIZE: {size}</p>
@@ -82,6 +84,21 @@ export class CartItem extends React.Component {
     );
   }
 }
+
+CartItem.propTypes = {
+  cart: PropTypes.array,
+  deleteItem: PropTypes.func,
+  addItem: PropTypes.func,
+  item: PropTypes.shape({
+    quantity: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
+    size: PropTypes.string.isRequired,
+    stock: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired
+  })
+};
 
 const mapStateToProps = state => {
   return {

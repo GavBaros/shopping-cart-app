@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addItem } from "../../actions";
 import { getLastWord } from "../../utils";
@@ -116,6 +117,15 @@ export class ProductDetails extends React.Component {
     );
   }
 }
+
+ProductDetails.propTypes = {
+  state: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    brand: PropTypes.shape({ name: PropTypes.string.isRequired }),
+    title: PropTypes.string.isRequired,
+    skus: PropTypes.array.isRequired
+  })
+};
 
 export default connect(
   null,

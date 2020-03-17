@@ -1,0 +1,11 @@
+.cart-container {
+  padding: 1rem;
+}
+
+.cart-container ul {
+  display: inline;
+}
+
+.cart-container li {
+  list-style: none;
+}
