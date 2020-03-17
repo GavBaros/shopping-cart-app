@@ -1,0 +1,42 @@
+{
+  "image": "https://ik.imagekit.io/pimberly/5a8c13244d6da904d47144ba/e01f72b5/5d4a85d754d1780084000030.jpeg",
+  "brand": {
+    "id": "2000000000000020177",
+    "name": "David Sparshott",
+    "slug": "david-sparshott"
+  },
+  "title": "Unframed Col Du Glandon Art Print",
+  "id": "2000001000410220177",
+  "skus": [
+    {
+      "description": "Unframed Col Du Glandon Art Print - A4",
+      "id": "2100011000410220177",
+      "price": 60,
+      "stock": 10
+    },
+    {
+      "description": "Unframed Col Du Glandon Art Print - A3",
+      "id": "2100021000410220177",
+      "price": 80,
+      "stock": 10
+    },
+    {
+      "description": "Unframed Col Du Glandon Art Print - A2",
+      "id": "2100031000410220177",
+      "price": 100,
+      "stock": 10
+    },
+    {
+      "description": "Unframed Col Du Glandon Art Print - A1",
+      "id": "2100041000410220177",
+      "price": 150,
+      "stock": 10
+    },
+    {
+      "description": "Unframed Col Du Glandon Art Print - A0",
+      "id": "2100051000410220177",
+      "price": 200,
+      "stock": 10
+    }
+  ]
+}
