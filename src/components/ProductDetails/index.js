@@ -1,20 +1,22 @@
 import React from "react";
+import { connect } from "react-redux";
+import { addItem } from "../../actions";
+import { getLastWord } from "../../utils";
 
-class ProductDetails extends React.Component {
+export class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
+      size: undefined,
       price: 0,
       quantity: 0,
       stock: 0
     };
   }
-
   componentDidMount() {
     const { description, price, stock } = this.props.location.state.skus[0];
 
-    this.setState({ size: description.split(" ").slice(-1)[0], price, stock });
+    this.setState({ size: getLastWord(description), price, stock });
   }
 
   handleSelectChange = e => {
@@ -29,6 +31,21 @@ class ProductDetails extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
+
+    const { id, image, title } = this.props.location.state;
+    const { size, price, quantity, stock } = this.state;
+
+    const selectedProduct = {
+      id,
+      image,
+      title,
+      size,
+      price,
+      quantity,
+      stock
+    };
+
+    this.props.addItem(selectedProduct);
   };
 
   render() {
@@ -43,11 +60,16 @@ class ProductDetails extends React.Component {
         }
       }
     } = this.props;
+
     return (
-      <div>
+      <div style={{ padding: "1rem" }}>
         <h2>{title}</h2>
         <div>
-          <img src={image} alt={title} />
+          <img
+            style={{ width: "400px", height: "400px" }}
+            src={image}
+            alt={title}
+          />
         </div>
         <h4>{name}</h4>
         <h4>£{price}</h4>
@@ -60,12 +82,12 @@ class ProductDetails extends React.Component {
                 <option
                   key={description}
                   value={JSON.stringify({
-                    size: description.split(" ").slice(-1)[0],
+                    size: getLastWord(description),
                     price,
                     stock
                   })}
                 >
-                  {description.split(" ").slice(-1)[0]}
+                  {getLastWord(description)}
                 </option>
               ))}
             </select>
@@ -95,4 +117,9 @@ class ProductDetails extends React.Component {
   }
 }
 
-export default ProductDetails;
+export default connect(
+  null,
+  {
+    addItem
+  }
+)(ProductDetails);
