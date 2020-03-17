@@ -23,6 +23,15 @@ export default (state = [], { payload, type }) => {
         return [payload];
       }
 
+    case DELETE_ITEM:
+      const indexToDelete = stateCopy.findIndex(obj => criteria(obj, payload));
+      const updatedArray = stateCopy.filter((obj, i) => i !== indexToDelete);
+
+      return updatedArray;
+
+    case DELETE_ALL_ITEMS:
+      return [];
+
     default:
       return state;
   }

@@ -11,3 +11,8 @@ export const itemExists = (itemObject = {}, itemIndex) =>
   itemObject && itemIndex !== -1;
 
 export const getLastWord = string => string.split(" ").slice(-1)[0];
+
+export const calculateTotal = (cart = []) => {
+  let total = cart.reduce((acc, cur) => acc + cur.price * cur.quantity, 0);
+  return total;
+};
